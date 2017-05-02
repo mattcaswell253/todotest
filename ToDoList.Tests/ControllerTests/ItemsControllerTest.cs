@@ -7,11 +7,13 @@ using ToDoListWithMigrations.Models;
 using ToDoListWithMigrations.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using ToDoList.Models;
 
 namespace ToDoList.Tests
 {
     public class ItemsControllerTest
     {
+        EFItemRepository db = new EFItemRepository(new TestDbContext());
         Mock<IItemRepository> mock = new Mock<IItemRepository>();
 
         private void DbSetup()
@@ -50,6 +52,22 @@ namespace ToDoList.Tests
 
             // Assert
             Assert.IsType<List<Item>>(result);
+        }
+
+        [Fact]
+        public void DB_CreateNewEntry_Test()
+        {
+            // Arrange
+            ItemsController controller = new ItemsController(db);
+            Item testItem = new Item();
+            testItem.Description = "TestDb Item";
+
+            // Act
+            controller.Create(testItem);
+            var collection = (controller.Index() as ViewResult).ViewData.Model as IEnumerable<Item>;
+
+            // Assert
+            Assert.Contains<Item>(testItem, collection);
         }
     }
 }

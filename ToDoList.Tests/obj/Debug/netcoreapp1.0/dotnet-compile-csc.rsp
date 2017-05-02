@@ -200,4 +200,5 @@
 "C:\Users\epicodus\Desktop\ToDoListWithMigration\ToDoList.Tests\Program.cs"
 "C:\Users\epicodus\Desktop\ToDoListWithMigration\ToDoList.Tests\Startup.cs"
 "C:\Users\epicodus\Desktop\ToDoListWithMigration\ToDoList.Tests\ControllerTests\ItemsControllerTest.cs"
+"C:\Users\epicodus\Desktop\ToDoListWithMigration\ToDoList.Tests\Models\TestDbContext.cs"
 "C:\Users\epicodus\Desktop\ToDoListWithMigration\ToDoList.Tests\ModelTests\ItemTest.cs"

@@ -12,16 +12,11 @@ namespace ToDoListWithMigrations.Models
         {
         }
 
-        public DbSet<Item> Items { get; set; }
+        public virtual DbSet<Item> Items { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ToDoListWithMigrations;integrated security=True");
-        }
-
-        public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
-            : base(options)
-        {
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

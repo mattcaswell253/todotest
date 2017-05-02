@@ -34,5 +34,17 @@ namespace ToDoListWithMigrations.Models
             db.SaveChanges();
         }
 
+        public EFItemRepository(ToDoDbContext connection = null)
+        {
+            if (connection == null)
+            {
+                this.db = new ToDoDbContext();
+            }
+            else
+            {
+                this.db = connection;
+            }
+        }
+
     }
 }

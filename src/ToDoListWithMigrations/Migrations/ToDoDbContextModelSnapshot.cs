@@ -21,8 +21,6 @@ namespace ToDoListWithMigrations.Migrations
                     b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("CategoryId");
-
                     b.Property<string>("Description");
 
                     b.HasKey("ItemId");

@@ -8,7 +8,7 @@ using ToDoListWithMigrations.Models;
 namespace ToDoListWithMigrations.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20170502173201_Initial")]
+    [Migration("20170502224935_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,8 +21,6 @@ namespace ToDoListWithMigrations.Migrations
                 {
                     b.Property<int>("ItemId")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<int>("CategoryId");
 
                     b.Property<string>("Description");
 

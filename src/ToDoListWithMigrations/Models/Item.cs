@@ -13,7 +13,7 @@ namespace ToDoListWithMigrations.Models
         [Key]
         public int ItemId { get; set; }
         public string Description { get; set; }
-        public int CategoryId { get; set; }
+        
 
         public override bool Equals(System.Object otherItem)
         {
