@@ -8,7 +8,7 @@ using ToDoListWithMigrations.Models;
 namespace ToDoListWithMigrations.Migrations
 {
     [DbContext(typeof(ToDoDbContext))]
-    [Migration("20170420173714_Initial")]
+    [Migration("20170502173201_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -16,18 +16,6 @@ namespace ToDoListWithMigrations.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("ToDoListWithMigrations.Models.Category", b =>
-                {
-                    b.Property<int>("CategoryId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("CategoryId");
-
-                    b.ToTable("Categories");
-                });
 
             modelBuilder.Entity("ToDoListWithMigrations.Models.Item", b =>
                 {
@@ -40,17 +28,7 @@ namespace ToDoListWithMigrations.Migrations
 
                     b.HasKey("ItemId");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Items");
-                });
-
-            modelBuilder.Entity("ToDoListWithMigrations.Models.Item", b =>
-                {
-                    b.HasOne("ToDoListWithMigrations.Models.Category", "Category")
-                        .WithMany("Items")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

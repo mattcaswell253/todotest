@@ -14,7 +14,7 @@ namespace ToDoListWithMigrations.Controllers
         private ToDoDbContext db = new ToDoDbContext();
         public IActionResult Index()
         {
-            return View(db.Items.Include(items => items.Category).ToList());
+            return View(db.Items.ToList());
         }
         public IActionResult Details(int id)
         {
@@ -23,7 +23,6 @@ namespace ToDoListWithMigrations.Controllers
         }
         public IActionResult Create()
         {
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
             return View();
         }
         [HttpPost]
@@ -36,7 +35,6 @@ namespace ToDoListWithMigrations.Controllers
         public IActionResult Edit(int id)
         {
             var thisItem = db.Items.FirstOrDefault(items => items.ItemId == id);
-            ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "Name");
             return View(thisItem);
         }
         [HttpPost]
